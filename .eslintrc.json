@@ -10,6 +10,7 @@
     "rules": {
         "no-constant-condition": "off",
         "no-await-in-loop": "off",
-        "no-console": "off"
+        "no-console": "off",
+        "react/function-component-definition": "off"
     }
 }

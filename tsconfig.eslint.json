@@ -3,7 +3,8 @@
 		"src/**/*.ts",
 		"media/**/*.tsx",
 		"media/**/*.ts",
-		".eslintrc.json"
+		".eslintrc.json",
+		"vite.config.ts"
 	],
 	"exclude": [
 		"node_modules",

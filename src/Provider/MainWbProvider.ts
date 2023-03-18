@@ -26,7 +26,7 @@ class MainWbProvider {
   }
 
   private loadCssAssets() {
-    const cssAssets = ['/styles/reset.css', '/styles/vscode.css'];
+    const cssAssets = ['/build/style.css'];
 
     return cssAssets.map((cssAsset) => {
       const cssFile = vscode.Uri.file(`${this.MEDIA_PATH}${cssAsset}`);
@@ -36,7 +36,13 @@ class MainWbProvider {
   }
 
   private loadScriptAssets() {
-    const scriptAssets: ScriptAsset[] = [];
+    const scriptAssets: ScriptAsset[] = [
+      {
+        src: '/build/index.js',
+        type: 'module',
+        async: true,
+      },
+    ];
 
     return scriptAssets.map((scriptAsset) => {
       const scriptFile = vscode.Uri.file(`${this.MEDIA_PATH}${scriptAsset.src}`);
@@ -46,7 +52,7 @@ class MainWbProvider {
   }
 
   private async getWebViewContent() {
-    const htmlFile = vscode.Uri.file(`${this.MEDIA_PATH}/html/main-wb.html`);
+    const htmlFile = vscode.Uri.file(`${this.MEDIA_PATH}/assets/base.html`);
     const htmlBuffer = await vscode.workspace.fs.readFile(htmlFile);
     const html = Buffer.from(htmlBuffer).toString('utf8');
 
